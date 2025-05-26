@@ -24,13 +24,13 @@ const images: StaticImageData[] = [
   grad11, grad12, grad13, grad14, grad15
 ];
 
-const GalleryPage = () => {
+const Gallary = () => {
   const [selectedImage, setSelectedImage] = useState<StaticImageData | null>(null);
 
   return (
-    <div className="p-6 bg-white relative">
-      <h2 className="text-3xl font-semibold text-center text-purple-800 mb-6">
-        📸 Graduation Day Gallery
+    <div className="p-6 bg-white">
+      <h2 className="text-3xl font-bold text-center text-purple-700 mb-6">
+        🎓 Graduation Day Gallery
       </h2>
 
       {/* Gallery Grid */}
@@ -38,12 +38,12 @@ const GalleryPage = () => {
         {images.map((src, index) => (
           <div
             key={index}
-            onClick={() => setSelectedImage(src)}
             className="cursor-pointer"
+            onClick={() => setSelectedImage(src)}
           >
             <Image
               src={src}
-              alt={`Memory ${index + 1}`}
+              alt={`Graduation ${index + 1}`}
               className="rounded-lg shadow-md hover:scale-105 transition-transform"
               width={500}
               height={300}
@@ -53,13 +53,13 @@ const GalleryPage = () => {
         ))}
       </div>
 
-      {/* Image Modal */}
+      {/* Modal Viewer */}
       {selectedImage && (
         <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
           <div className="relative max-w-4xl w-full p-4">
             <button
               onClick={() => setSelectedImage(null)}
-              className="absolute top-4 right-4 text-white bg-red-600 hover:bg-red-700 p-2 rounded-full text-lg font-bold"
+              className="absolute top-4 right-4 text-white bg-red-600 hover:bg-red-700 p-2 rounded-full"
             >
               ✕
             </button>
@@ -78,4 +78,4 @@ const GalleryPage = () => {
   );
 };
 
-export default GalleryPage;
+export default Gallary;
