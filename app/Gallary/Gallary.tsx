@@ -1,5 +1,7 @@
 "use client"
+
 import React, { useState } from "react";
+import Image from 'next/image';
 import grad1 from "../assets/grad1.jpg";
 import grad2 from "../assets/grad2.jpg";
 import grad3 from "../assets/grad3.jpg";
