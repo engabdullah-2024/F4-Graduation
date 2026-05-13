@@ -2,6 +2,9 @@
 
 import React, { useState } from 'react';
 import Image, { StaticImageData } from 'next/image';
+import Link from 'next/link'; // Fixed: Changed from react-router-dom
+
+// Asset Imports
 import grad1 from '../assets/grad1.jpg';
 import grad2 from '../assets/grad2.jpg';
 import grad3 from '../assets/grad3.jpg';
@@ -75,7 +78,7 @@ export default function GalleryPage() {
       {/* Header Section */}
       <section className="relative py-20 bg-gradient-to-r from-purple-700 to-purple-900">
         <div className="container mx-auto px-4 text-center">
-          <div className="inline-block px-4 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm mb-6">
+          <div className="inline-block px-4 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm mb-6 text-white">
             memories
           </div>
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
@@ -124,6 +127,7 @@ export default function GalleryPage() {
                     src={item.src}
                     alt={item.title}
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -148,7 +152,7 @@ export default function GalleryPage() {
 
       {/* Stats Bar */}
       <section className="py-12 bg-purple-900">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 text-white">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="text-4xl font-bold text-yellow-400 mb-2">{images.length}</div>
@@ -183,7 +187,6 @@ export default function GalleryPage() {
             ×
           </button>
 
-          {/* Previous Button */}
           <button
             onClick={goToPrevious}
             className="absolute left-4 md:left-8 text-white/70 hover:text-white text-5xl transition-colors z-10"
@@ -191,7 +194,6 @@ export default function GalleryPage() {
             ‹
           </button>
 
-          {/* Next Button */}
           <button
             onClick={goToNext}
             className="absolute right-4 md:right-8 text-white/70 hover:text-white text-5xl transition-colors z-10"
@@ -206,6 +208,7 @@ export default function GalleryPage() {
               className="w-full h-auto max-h-[80vh] object-contain rounded-lg shadow-2xl"
               width={1200}
               height={800}
+              priority
             />
             <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent rounded-b-lg">
               <h3 className="text-white font-semibold text-xl">
@@ -225,9 +228,9 @@ export default function GalleryPage() {
           <h3 className="text-2xl font-bold mb-4">Grade 12 Graduation</h3>
           <p className="text-gray-400 mb-6">Celebrating the academic achievements and memorable moments.</p>
           <div className="flex justify-center gap-6 text-gray-400">
-            <a href="/" className="hover:text-yellow-400 transition-colors">Home</a>
-            <a href="/gallery" className="hover:text-yellow-400 transition-colors">Gallery</a>
-            <a href="/videos" className="hover:text-yellow-400 transition-colors">Videos</a>
+            <Link href="/" className="hover:text-yellow-400 transition-colors">Home</Link>
+            <Link href="/gallery" className="hover:text-yellow-400 transition-colors">Gallery</Link>
+            <Link href="/videos" className="hover:text-yellow-400 transition-colors">Videos</Link>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
             <p>&copy; 2024 Grade 12 Graduation. All rights reserved.</p>
