@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Image, { StaticImageData } from 'next/image';
+import Link from 'next/link'; // Added this import
 import grad1 from './assets/grad1.jpg';
 import grad2 from './assets/grad2.jpg';
 import grad3 from './assets/grad3.jpg';
@@ -67,12 +68,13 @@ export default function Home() {
             Celebrating the achievements of our brilliant students as they embark on their next journey
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#gallery" className="px-8 py-4 bg-yellow-500 hover:bg-yellow-400 text-purple-900 font-semibold rounded-full transition-all duration-300 transform hover:scale-105">
+            {/* Changed to Link for smooth internal navigation if using a library, or keep as <a> for standard fragment anchors */}
+            <Link href="#gallery" className="px-8 py-4 bg-yellow-500 hover:bg-yellow-400 text-purple-900 font-semibold rounded-full transition-all duration-300 transform hover:scale-105">
               View Gallery
-            </a>
-            <a href="#about" className="px-8 py-4 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white font-semibold rounded-full transition-all duration-300">
+            </Link>
+            <Link href="#about" className="px-8 py-4 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white font-semibold rounded-full transition-all duration-300">
               Learn More
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -158,12 +160,12 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-12">
-            <a href="/gallery" className="inline-flex items-center gap-2 px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-full transition-all duration-300">
+            <Link href="/gallery" className="inline-flex items-center gap-2 px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-full transition-all duration-300">
               View All Photos
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -177,12 +179,12 @@ export default function Home() {
           <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
             Explore our complete collection of graduation memories and celebrate this special milestone with us
           </p>
-          <a href="/gallery" className="inline-flex items-center gap-2 px-10 py-5 bg-yellow-500 hover:bg-yellow-400 text-purple-900 font-bold text-lg rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
+          <Link href="/gallery" className="inline-flex items-center gap-2 px-10 py-5 bg-yellow-500 hover:bg-yellow-400 text-purple-900 font-bold text-lg rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
             Explore Gallery
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -199,9 +201,9 @@ export default function Home() {
             <div>
               <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="/" className="hover:text-yellow-400 transition-colors">Home</a></li>
-                <li><a href="/gallery" className="hover:text-yellow-400 transition-colors">Gallery</a></li>
-                <li><a href="/videos" className="hover:text-yellow-400 transition-colors">Videos</a></li>
+                <li><Link href="/" className="hover:text-yellow-400 transition-colors">Home</Link></li>
+                <li><Link href="/gallery" className="hover:text-yellow-400 transition-colors">Gallery</Link></li>
+                <li><Link href="/videos" className="hover:text-yellow-400 transition-colors">Videos</Link></li>
               </ul>
             </div>
             <div>
